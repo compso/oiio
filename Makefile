@@ -28,7 +28,13 @@ endif
 
 MY_MAKE_FLAGS ?=
 MY_NINJA_FLAGS ?=
+
+
 MY_CMAKE_FLAGS += -g3 -DSELF_CONTAINED_INSTALL_TREE:BOOL=TRUE
+
+ifneq (${CMAKE_FLAGS},)
+MY_CMAKE_FLAGS += ${CMAKE_FLAGS}
+endif
 BUILDSENTINEL ?= Makefile
 NINJA ?= ninja
 CMAKE ?= cmake
@@ -290,7 +296,7 @@ MY_CMAKE_FLAGS += -DUSE_FREETYPE:BOOL=${USE_FREETYPE}
 endif
 
 
-#$(info MY_CMAKE_FLAGS = ${MY_CMAKE_FLAGS})
+$(info MY_CMAKE_FLAGS = ${MY_CMAKE_FLAGS})
 #$(info MY_MAKE_FLAGS = ${MY_MAKE_FLAGS})
 
 #########################################################################
