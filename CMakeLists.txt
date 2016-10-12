@@ -359,6 +359,7 @@ include (externalpackages)
 
 
 include_directories (
+    BEFORE
     "${CMAKE_SOURCE_DIR}/src/include"
     "${CMAKE_BINARY_DIR}/include/OpenImageIO"
   )
@@ -564,7 +565,7 @@ oiio_add_tests (
                 oiiotool-pattern oiiotool-readerror
                 oiiotool-subimage oiiotool-text
                 maketx oiiotool-maketx
-                dither
+                dither dup-channels
                 dpx ico iff png psd rla sgi
                 python-typedesc python-imagespec python-roi python-deep
                 python-imageinput python-imageoutput
